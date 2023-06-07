@@ -1,13 +1,8 @@
-## Assignment 4 - Graphviz BST
+# Assignment 4 - Graphviz BST
+## Venkata Sai Prakash Boddu
 
 ### Overview
 
-Created a binary search tree using graphviz that contains seven nodes and used a record as its shape. 
-The record has  `left` `data` `right` sections. 
+The `bst.dot` file represents a binary search tree consisting of seven nodes labeled A, B, C, D, E, F, and G. Each node has three fields: "left," "data," and "right." The "data" field contains a numeric value from 1 to 7.
 
-### Deliverables
-
-- Created a folder called `A01`. 
-- Created a file to hold the dot syntax used to create binary tree and named it:  `bst.dot`
-- Got the output image from your dot code and named it `bst.png`.
-- Placed both files and the `README.md` in the `A01` folder within assignments foldder.
+The edges between the nodes show the relationships within the binary search tree. For example, A:left:B indicates that node B is the left child of node A, and A:right:B indicates that node C is the right child of node A.
