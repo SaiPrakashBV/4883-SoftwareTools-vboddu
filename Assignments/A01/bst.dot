@@ -1,0 +1,22 @@
+digraph binarysearchtree {
+        graph[splines=line] 
+        node [ shape=record ]
+        edge [arrowhead=vee, arrowtail=dot, color=orange, dir=both, tailclip=false]
+        A [label=" <left>  | <data> 1| <right> "]
+        B [label=" <left>  | <data> 2| <right> "]
+        C [label=" <left>  | <data> 3| <right> "]
+        D [label=" <left>  | <data> 4| <right> "]
+        E [label=" <left>  | <data> 5| <right> "]
+        F [label=" <left>  | <data> 6| <right> "]
+        G [label=" <left>  | <data> 7| <right> "]
+        
+        
+
+        A:left:B -> B:data;
+        A:right:B -> C:data;
+        B:left:B -> D:data ;
+        B:right:B -> E:data;
+        C:left:B-> F:data ;
+        C:right:B -> G:data ;
+               
+}
