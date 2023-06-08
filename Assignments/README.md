@@ -2,6 +2,6 @@
 
 |   #   | Folder Link | Assignment Description |
 | :---: | ----------- | ---------------------- |
-|  1    | [A01](A01)  | Graphviz BST           |
-|  2    | [A02](A02)  |Software Tool - Selenium|
+|  1    | [A03](A03)  | Graphviz BST           |
+|  2    | [A04](A04)  |Software Tool - Selenium|
 |       |             |                        |
