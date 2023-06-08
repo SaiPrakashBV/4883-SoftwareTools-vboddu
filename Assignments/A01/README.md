@@ -11,7 +11,7 @@ The edges between the nodes show the relationships within the binary search tree
 
 |   #   | File            | Description                                        |
 | :---: | --------------- | -------------------------------------------------- |
-|   1   | bst.dot         | A dot file representing a binary search tree structure      |
-|   2   | bst.png         | A PNG image generated from the bst.dot file, displaying the binary search tree graphically |        |
+|   1   | [bst.dot](bst.dot)         | A dot file representing a binary search tree structure      |
+|   2   | [bst.png](bst.png)         | A PNG image generated from the bst.dot file, displaying the binary search tree graphically |        |
 
 
