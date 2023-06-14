@@ -2,6 +2,7 @@
 ## Venkata Sai Prakash Boddu
 
 ### Description:
+This assignment involves implementing a Python program that utilizes the Graphviz library to generate a graphical representation of a family tree. By constructing a custom family tree data structure and generating Dot code, the program visualizes familial relationships.
 
 ### Files
 
