@@ -60,12 +60,16 @@ def buildWeatherURL(month=None, day=None, year=None, airport=None, filter=None):
         airportcode.append(e["icao"])
     filter=["daily", "monthly", "weekly"]
     # Create the gui's layout using text boxes that allow for user input without checking for valid input
-    layout = [
-        [sg.Text('Month')],[sg.Combo(Month,readonly=True,)],
-        [sg.Text('Day')],[sg.Combo(Day,readonly=True)],
-        [sg.Text('Year')],[sg.Combo(Year,readonly=True)],
-        [sg.Text('Code')],[sg.Combo(airportcode,readonly=True)],
-        [sg.Text('Daily / Weekly / Monthly')],[sg.Combo(filter, readonly=True)],
+    layout = [[sg.Text('This GUI application allows users to conveniently retrieve weather data from wunderground.com by inputting various parameters.', size=(150, 2))],
+              [sg.Text('Users can select the desired parameters for the weather data retrieval. These parameters include the month, day, and year for the specific date of interest. Additionally, users can input the airport code to fetch weather data for a particular location. The application also provides a filter type selection, allowing users to choose between daily, weekly, or monthly weather data.', size=(150, 2))],
+              [sg.Text('Once the user submits the input, the application generates a URL based on the selected parameters. This URL follows the wunderground.com URL format specifically designed for historical weather data retrieval. The application then retrieves the weather data from the website using this constructed URL.', size=(150, 2))],
+              [sg.Text('The retrieved weather data is presented to the user in a clear and organized manner. The application displays the data in a table format, providing easy readability and accessibility. Users can conveniently analyze and explore the weather information retrieved from wunderground.com.', size=(150, 2))],
+              [sg.Text('Overall, this GUI application offers a seamless and efficient way for users to input parameters, retrieve historical weather data, and view it in a structured format using the PySimpleGUI library.', size=(150, 2))],
+        [sg.Text('Month',justification='left'),sg.Combo(Month,readonly=True,size=(20,1))],
+        [sg.Text('Day   ',justification='left'),sg.Combo(Day,readonly=True,size=(20,1))],
+        [sg.Text('Year  ',justification='left'),sg.Combo(Year,readonly=True,size=(20,1))],
+        [sg.Text('Code  ',justification='left'),sg.Combo(airportcode,readonly=True,size=(20,1))],
+        [sg.Text('Daily / Weekly / Monthly',justification='left'),sg.Combo(filter, readonly=True,size=(20,1))],
         [sg.Submit(), sg.Cancel()]
     ]      
 
@@ -86,11 +90,11 @@ def buildWeatherURL(month=None, day=None, year=None, airport=None, filter=None):
     
     url= f"https://www.wunderground.com/history/{filter}/{code}/date/{year}-{m}-{day}"
     sg.popup('You entered', f"Month: {month}, Day: {day}, Year: {year}, Code: {code}, Filter: {filter}",'URL is ',url, 'Getting the data from website...This may take  few moments....Please wait')
-    return url
+    return url, month, day, year, code, filter
     # return the URL to pass to wunderground to get appropriate weather data
 
 if __name__=='__main__':
-    url= buildWeatherURL()
+    url,m,d,y,c,f= buildWeatherURL()
     #url="https://www.wunderground.com/history/daily/us/ok/lawton/KLAW/date/2023-6-13"
     page= asyncGetWeather(url)
     title, headers, column_data = get_data(page)
@@ -98,15 +102,16 @@ if __name__=='__main__':
     #empty=[]
     #sg.popup(f"{title}{headers}")
     #print(column_data)
-    layout = [
+    layout = [[sg.Text(f'The {f} weather data of airport code "{c}" on date {d}-{m}-{y} from {url} is as follows ')],
     [sg.Table(values=column_data, headings=headers, max_col_width=25,
               auto_size_columns=True, display_row_numbers=True,
-              justification='center', num_rows=10, key='-TABLE-')],
+              justification='center', num_rows=len(column_data), key='-TABLE-')],
     [sg.Button('Exit')]
     ]
 
     # Create the window
-    window = sg.Window('Daily Observations', layout)
+    window = sg.Window('Daily Observations', layout,finalize=True, element_justification='c')
+    window.maximize() 
     while True:
         event, values = window.read()
         if event == sg.WINDOW_CLOSED or event == 'Exit':
