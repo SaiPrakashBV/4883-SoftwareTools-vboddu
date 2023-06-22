@@ -15,13 +15,13 @@ Once the user submits the input, the code constructs a URL using the selected pa
 |  3  | [gui.py](gui.py)                                               | gui form to get necessary data to query the weather page |
 |  4  | [Input_window_1.png](Input_window_1.png)                       | Input window of example 1 |
 |  5  | [Popup_window_after_submit1.png](Popup_window_after_submit1.png)| Popup window after submitting the input of example 1|
-|  6  | [Output_Window_1.png](Output_Window_1.png)                       | Output window of example 1 |
+|  6  | [Output_Window1.png](Output_Window1.png)                       | Output window of example 1 |
 |  7  | [Input_window_2.png](Input_window_2.png)                       | Input window of example 2 |
 |  8  | [Popup_window_after_submit2.png](Popup_window_after_submit2.png)| Popup window after submitting the input of example 2|
-|  9  | [Output_Window_2.png](Output_Window_2.png)                       | Output window of example 2 |
+|  9  | [Output_Window2.png](Output_Window2.png)                       | Output window of example 2 |
 |  10  | [Input_window_3.png](Input_window_3.png)                       | Input window of example 3 |
 |  11  | [Popup_window_after_submit3.png](Popup_window_after_submit3.png)| Popup window after submitting the input of example 3|
-|  12  | [Output_Window_3.png](Output_Window_3.png)                       | Output window of example 3 |
+|  12  | [Output_Window3.png](Output_Window3.png)                       | Output window of example 3 |
 
 
 
