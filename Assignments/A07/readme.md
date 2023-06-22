@@ -12,7 +12,7 @@ Once the user submits the input, the code constructs a URL using the selected pa
 | :-: | :--------------------------------------- | :--------------------------------------------------------------- |
 |  1  | [airports-better.json](airports-better.json) | Necessary airport codes data for GUI                                  |
 |  2  | [get_weather_daily.py ](./get_weather_daily.py)|Python file  which takes input as URL and returns Title and data of Observation table        |
-|  3  | [gui.py](gui.py)                                               | gui form to get necessary data to query the weather page |
+|  3  | [gui.py](gui.py)                                               | gui form to get necessary data to query the weather page and display the fetched data in a table format |
 |  4  | [Input_window_1.png](Input_window_1.png)                       | Input window of example 1 |
 |  5  | [Popup_window_after_submit1.png](Popup_window_after_submit1.png)| Popup window after submitting the input of example 1|
 |  6  | [Output_Window1.png](Output_Window1.png)                       | Output window of example 1 |

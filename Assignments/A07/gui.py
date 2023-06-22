@@ -95,13 +95,10 @@ def buildWeatherURL(month=None, day=None, year=None, airport=None, filter=None):
 
 if __name__=='__main__':
     url,m,d,y,c,f= buildWeatherURL()
-    #url="https://www.wunderground.com/history/daily/us/ok/lawton/KLAW/date/2023-6-13"
+    
     page= asyncGetWeather(url)
     title, headers, column_data = get_data(page)
-    #print(get_data(page))
-    #empty=[]
-    #sg.popup(f"{title}{headers}")
-    #print(column_data)
+    
     layout = [[sg.Text(f'The {f} weather data of airport code "{c}" on date {d}-{m}-{y} from {url} is as follows ')],
     [sg.Table(values=column_data, headings=headers, max_col_width=25,
               auto_size_columns=True, display_row_numbers=True,

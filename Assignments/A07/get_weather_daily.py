@@ -49,18 +49,16 @@ def get_data(input_page):
     title=history.find('div',class_='observation-title')
     table_headings = history.find_all('div', class_=lambda value: value and 'mat-sort-header-content ng-tns-c144-' in value)
     tr_element = history.find_all('tr', class_='mat-row cdk-row ng-star-inserted')
-    #print("Title is "+ title.text)
-    #print("Table headings are : ")
+    
     headers=[]
     row_data=[]
     rows=[]
     for th in table_headings:
          data=th.text
          headers.append(data)
-         #print(data+ " ")
-    #print(headers)
+         
     nheaders=len(headers)
-    #print("Table data are: ")
+    
     # Find all td elements within the tr element
     for e in tr_element:
         td_elements = e.find_all('td')
@@ -72,11 +70,11 @@ def get_data(input_page):
             #print(data +" ")
         rows.append(row_data)
         row_data=[]
-    #print(rows)
+    
     return (title.text, headers, rows)
 if __name__=='__main__':
 
-    # Could be a good idea to use the buildWeatherURL function from gui.py
+    
     url = 'https://www.wunderground.com/history/daily/mx/mexico-city/MMMX/date/2000-4-19'
 
     # get the page source HTML from the URL
