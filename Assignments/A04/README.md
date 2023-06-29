@@ -1,4 +1,4 @@
-# Assignment 01 - Graphviz BST
+# Assignment 04 - Graphviz BST
 ## Venkata Sai Prakash Boddu
 
 ### Description
