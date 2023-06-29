@@ -1,4 +1,4 @@
-# Assignment 2 - Software Tool - [Selenium](https://www.selenium.dev/)
+# Assignment 3 - Software Tool - [Selenium](https://www.selenium.dev/)
 ## Venkata Sai Prakash Boddu
 
 ## Description:
