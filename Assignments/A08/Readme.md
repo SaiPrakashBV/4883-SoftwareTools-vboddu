@@ -1,6 +1,6 @@
 ## Assignment 8 - Fast Api with Covid Data
 
-#### Venkata Sai Prakash Boddu
+### Venkata Sai Prakash Boddu
 
 ### Overview:
 
