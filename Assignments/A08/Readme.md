@@ -4,21 +4,30 @@
 
 ### Overview:
 
-Creating a RESTful API using FastAPI that provides access to COVID-19 data. The API will fetch the data from a publicly available data source and expose endpoints to retrieve various statistics related to COVID-19 cases.
+This code implements a FastAPI-based web application for retrieving and analyzing COVID-19 data. It provides various routes to access information such as cases, deaths, unique countries, and WHO regions.
 
-### Data File
+The application starts by creating a FastAPI instance with a predefined description. It also initializes an empty list called `db` to store the COVID-19 data that will be read from a CSV file.
 
-The data is provided here: [data.csv](data.csv)
+The code then reads the CSV file and populates the `db` list with the data, skipping the header row. This data serves as the source for all the subsequent data retrieval operations.
 
-Column Descriptions:
+The application defines several routes:
+1. The base URL ("/") redirects to the "/docs" route, which displays documentation for the API.
+2. The "/countries/" route returns a JSON response containing the unique countries present in the data.
+3. The "/whos/" route returns a JSON response containing the unique WHO regions present in the data.
+4. The "/casesByRegion/" route returns the number of cases by region. It accepts an optional parameter for filtering by a specific year.
+5. The "/deaths/" route provides flexibility for retrieving death information. It accepts parameters such as region, country, and year, allowing for customized data retrieval. It allows all combinations such as region alone, country alone, region & year, country & year, year alone and region & country.
+6. The "/cases/" route is similar to the "/deaths/" route but focuses on retrieving case information.
+7. The "/max_deaths/" route returns the country with the maximum number of deaths.
+8. The "/max_deaths_with_in_date_range/" route returns the maximum deaths within a specified date range. It accepts parameters for minimum and maximum dates.
+9. The "/min_deaths/" route returns the country with the minimum number of deaths.
+10. The "/avg_deaths/" route returns the country with the average number of deaths by country.
 
-|  #  | Column            | Description                       |
-| :-: | :---------------- | :-------------------------------- |
-|  0  | Date_reported     | date in `yyyy-mm-dd` format       |
-|  1  | Country_code      | A unique 2 digit country code     |
-|  2  | Country           | Name of the country               |
-|  3  | WHO_region        | World Health Organization region  |
-|  4  | New_cases         | Number of new cases on this date  |
-|  5  | Cumulative_cases  | Cumulative cases up to this date  |
-|  6  | New_deaths        | Number of new deaths on this date |
-|  7  | Cumulative_deaths | Cumulative deaths up to this date |
+Overall, this code demonstrates the use of FastAPI to create a web API for accessing and analyzing COVID-19 data. It leverages CSV data and provides flexible filtering options for retrieving specific information. The routes and their respective responses facilitate easy access to COVID-19 statistics based on various criteria.
+
+### Deliverables
+
+|  #  | File Name                | Description                       |
+| :-: | :----------------        | :-------------------------------- |
+|  1  |[api.py](api.py)          | date in `yyyy-mm-dd` format       |
+|  2  | [data.csv](data.csv)     | A unique 2 digit country code     |
+

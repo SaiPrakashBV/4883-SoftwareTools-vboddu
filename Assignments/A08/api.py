@@ -8,7 +8,7 @@ import csv
 
 
 description = """🚀
-## 4883 Software Tools
+## 4883 Software Tools -Assignment 08 - Fast API with Covid Data
 ### Where awesomeness happens
 """
 
@@ -21,8 +21,7 @@ app = FastAPI(
 
 db = []
 
-# Open the CSV file
-# populates the `db` list with all the csv data
+"The code reads the CSV file and populates the db list with the data from the CSV file, skipping the header row."
 with open('D:\\4883-SoftwareTools-vboddu\\Assignments\\A08\\data.csv', 'r') as file:
     # Create a CSV reader object
     reader = csv.reader(file)
@@ -35,7 +34,7 @@ with open('D:\\4883-SoftwareTools-vboddu\\Assignments\\A08\\data.csv', 'r') as f
             continue
         db.append(row)
 
-
+"The function getUniqueCountries() returns a list of unique countries from the db list."
 def getUniqueCountries():
     global db
     countries = {}
@@ -47,6 +46,7 @@ def getUniqueCountries():
 
     return list(countries.keys())
 
+"The function getUniqueWhos() returns a list of unique WHO regions from the db list."
 def getUniqueWhos():
     global db
     whos = {}
@@ -58,22 +58,26 @@ def getUniqueWhos():
    
     return list(whos.keys())
 
+"""A route is defined for the base URL ("/") to redirect to the "/docs" route."""
 @app.get("/")
 async def docs_redirect():
     """Api's base route that displays the information created above in the ApiInfo section."""
     return RedirectResponse(url="/docs")
 
+"""A route is defined for the "/countries/" URL to return a JSON response containing the unique countries."""
 @app.get("/countries/")
 async def countries():
 
     return {"countries":getUniqueCountries()}
 
-
+"""A route is defined for the "/whos/" URL to return a JSON response containing the unique WHO regions."""
 @app.get("/whos/")
 async def whos():
 
     return {"whos":getUniqueWhos()}
 
+"""A route is defined for the "/casesByRegion/" URL to return a JSON response containing the number of cases by region.
+ The response can be filtered by a specific year if provided."""
 @app.get("/casesByRegion/")
 async def casesByRegion(year:int = None):
     """
@@ -108,7 +112,9 @@ async def casesByRegion(year:int = None):
 
     return {"data":cases,"success":True,"message":"Cases by Region","size":len(cases),"year":year}
 
-
+"""A route is defined for the "/deaths/" URL to return a JSON response containing death information based 
+on the providedparameters (region, country, and year). The response can be filtered based on the combination of 
+these parameters."""
 @app.get("/deaths/")
 async def get_deaths(region:str =None ,country:str =None, year:int =None):
     if region==None and country ==None and year == None:
@@ -179,7 +185,8 @@ async def get_deaths(region:str =None ,country:str =None, year:int =None):
 
         return {"data":deaths,"success":True,"message":"Deaths of Country in region","Country":country,"Region":region}
 
-
+"""A route is defined for the "/cases/" URL to return a JSON response containing case information based on the 
+provided parameters (region, country, and year). The response can be filtered based on the combination of these parameters."""
 @app.get("/cases/")
 async def get_cases(region:str =None ,country:str =None, year:int =None):
     if region==None and country ==None and year == None:
@@ -250,7 +257,8 @@ async def get_cases(region:str =None ,country:str =None, year:int =None):
 
         return {"data":cases,"success":True,"message":"cases of Country in region","Country":country,"Region":region}
 
-
+"""A route is defined for the "/max_deaths/" URL to return a JSON response containing the country with the maximum number of deaths.
+ The response includes the maximum deaths, success status, message, and the size of the deaths dictionary."""
 @app.get("/max_deaths/")
 async def get_max_deaths():
     deaths = {}
@@ -263,6 +271,23 @@ async def get_max_deaths():
     max_deaths=max(deaths)  
 
     return {"data":max_deaths,"success":True,"message":"Maximum deaths by Country","size":len(deaths)}
+
+"""A route is defined for the "/max_deaths_with_in_date_range/" URL to return a JSON response containing the maximum deaths
+ within a specified date range. The response includes the deaths by country, success status, message, and the size of the 
+ deaths_by_country dictionary."""
+@app.get("/max_deaths_with_in_date_range/")
+async def max_deaths_with_in_date_ranges(min_date:str =None, max_date:str =None):
+    deaths_by_country={}
+    if min_date !=None and max_date!=None:
+        for row in db:
+            if not row[2] in deaths_by_country:
+                deaths_by_country[row[2]] = 0
+            if min_date <=row[0]<=max_date:
+                deaths_by_country[row[2]]+=int(row[6])
+    
+    return {"data":deaths_by_country,"success":True,"message":"Maximum deaths by Country","size":len(deaths_by_country)}
+
+
 
 @app.get("/min_deaths/")
 async def get_min_deaths():
