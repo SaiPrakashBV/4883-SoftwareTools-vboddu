@@ -131,7 +131,7 @@ The application defines several routes:
 
 Overall, this code demonstrates the use of FastAPI to create a web API for accessing and analyzing COVID-19 data. It leverages CSV data and provides flexible filtering options for retrieving specific information. The routes and their respective responses facilitate easy access to COVID-19 statistics based on various criteria.
 
-### Deliverables
+### Files
 
 |  #  | File Name                | Description                       |
 | :-: | :----------------        | :-------------------------------- |
