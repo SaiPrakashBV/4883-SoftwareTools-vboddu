@@ -119,9 +119,9 @@ The application defines several routes:
    
 10. The "/avg_deaths/" route returns the country with the average number of deaths by country.
     
-    Example 10: [http://localhost:5000/avg_deaths/](http://localhost:5000/avg_deaths/)
+    #### Example 10: [http://localhost:5000/avg_deaths/](http://localhost:5000/avg_deaths/)
 
-    Response 10: 
+    #### Response 10: 
                 {"data":29306,
                 "success":true,
                 "message":"Average deaths by Country",
