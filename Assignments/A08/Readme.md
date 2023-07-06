@@ -28,6 +28,6 @@ Overall, this code demonstrates the use of FastAPI to create a web API for acces
 
 |  #  | File Name                | Description                       |
 | :-: | :----------------        | :-------------------------------- |
-|  1  |[api.py](api.py)          | date in `yyyy-mm-dd` format       |
-|  2  | [data.csv](data.csv)     | A unique 2 digit country code     |
+|  1  | [api.py](api.py)         | This Python file implements a FastAPI web application for retrieving and analyzing COVID-19 data from a CSV file.      |
+|  2  | [data.csv](data.csv)     | The "data.csv" file contains COVID-19 data including cases, deaths, countries, WHO regions, and other related information.    |
 
