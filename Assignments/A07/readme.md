@@ -6,7 +6,7 @@ GUI application that allows users to input parameters and retrieve weather data 
 
 Once the user submits the input, the code constructs a URL using the selected parameters and retrieves the weather data from the website. The URL is constructed based on the wunderground.com URL format for historical weather data. After retrieving the data, it is displayed in a table format using another GUI window.
 
-### Deliverables
+### Files
 
 |  #  | name                                     | Description                                                      |
 | :-: | :--------------------------------------- | :--------------------------------------------------------------- |
