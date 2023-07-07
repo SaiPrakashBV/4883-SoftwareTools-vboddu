@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
+import time
 
 def search_amazon(keyword):
     # Specify the path to your ChromeDriver executable
@@ -16,17 +17,22 @@ def search_amazon(keyword):
 
     # Navigate to Amazon
     driver.get("https://www.amazon.com/")
+    time.sleep(5)
 
     # Find the search input field and enter the keyword
     search_field = driver.find_element(By.XPATH, "//input[@id='twotabsearchtextbox']")
     search_field.send_keys(keyword)
     search_field.send_keys(Keys.RETURN)
+    time.sleep(5)
 
     # Get the page source after the search results are loaded
     page_source = driver.page_source
-
+    time.sleep(5)
+    
+    
     # Close the browser
     driver.quit()
+    time.sleep(5)
 
     # Parse the page source with BeautifulSoup
     soup = BeautifulSoup(page_source, 'html.parser')
