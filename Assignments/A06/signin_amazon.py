@@ -23,7 +23,7 @@ email_field.send_keys(Keys.RETURN)
 time.sleep(7)
 
 password_field = driver.find_element(By.ID,'ap_password')
-password_field.send_keys('T#1aYm6!zB@r#')
+password_field.send_keys('**************')
 time.sleep(7)
 
 
